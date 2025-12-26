@@ -1,0 +1,350 @@
+Unlocking the Black Box: Explainable Artificial Intelligence
+         (XAI) for Trust and Transparency in AI Systems
+
+                  Nipuna Sankalpa Thalpage [0009-0001-3374-1927]
+
+Cardiff School of Technologies, Cardiff Metropolitan University, UK
+
+Published online: June 26, 2023 | https://doi.org/10.33847/2712-8148.4.1_4
+
+      Abstract. Explainable Artificial Intelligence (XAI) has emerged as a critical field
+      in AI research, addressing the lack of transparency and interpretability in complex
+      AI models. This conceptual review explores the significance of XAI in promoting
+      trust and transparency in AI systems. The paper analyzes existing literature on
+      XAI, identifies patterns and gaps, and presents a coherent conceptual framework.
+      Various XAI techniques, such as saliency maps, attention mechanisms, rule-based
+      explanations, and   model-agnostic approaches, are      discussed  to       enhance
+      interpretability. The paper highlights the challenges   posed   by black-box     AI
+      models, explores    the role of XAI in enhancing trust  and transparency,       and
+      examines   the  ethical considerations and responsible  deployment of XAI.   By
+      promoting  transparency and interpretability, this review aims     to build  trust,
+      encourage accountable AI systems, and contribute to the ongoing discourse on
+      XAI.
+      Key     words: Explainable   Artificial  Intelligence,  Black Box  AI, Conceptual
+      framework.
+
+1. INTRODUCTION
+      Explainable Artificial Intelligence (XAI) has emerged as a         critical field in the
+realm of   AI research    and development.     As   AI        systems become   increasingly
+sophisticated and pervasive,  there   is       a growing concern      regarding the lack of
+transparency and interpretability in these complex models. The ability to understand
+and explain the decision-making processes of AI systems is crucial for building trust,
+ensuring accountability, and addressing ethical considerations.
+      This paper is     a conceptual  review     that aims    to analyze and interpret  the
+literature on XAI, identify patterns or gaps in the existing knowledge, and present a
+coherent conceptual framework or theoretical perspective that contributes to the
+understanding of XAI. The focus is on exploring the significance of XAI in AI systems
+and highlighting  its     role in  addressing    the  concerns      surrounding   trust  and
+transparency.
+                   The paper delves into various XAI techniques that have been developed to
+promote interpretability, such as saliency maps, attention mechanisms, rule-based
+explanations, and    model-agnostic   approaches.     By      employing  these  techniques,
+valuable insights into the decision-making processes of AI models can be gained,
+enabling a deeper understanding and explanation of their outputs.
+      The subsequent sections of the paper discuss the challenges posed by black-
+box AI models, explore the benefits of XAI in enhancing trust and transparency, and
+examine the ethical considerations and responsible deployment of XAI. By examining
+these aspects, the paper contributes to the ongoing discourse on XAI and emphasizes
+its significance in fostering a deeper understanding of AI systems while ensuring their
+accountable and ethical use.
+      By promoting transparency and interpretability in AI models, this paper seeks
+to build trust among users, stakeholders, and society at large. It aims to encourage
+the development and deployment of AI systems that are explainable, accountable,
+and aligned with societal expectations. Through a comprehensive analysis of the
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+                                               31
+
+
+
+existing literature, this paper provides insights and a conceptual framework that
+contribute to the broader AI landscape.
+
+2. UNDERSTANDING EXPLAINABLE ARTIFICIAL INTELLIGENCE (XAI)
+
+Explainable Artificial Intelligence (XAI) has emerged as a crucial field in AI
+research, aiming to enhance transparency and interpretability in AI systems.
+Figure 1 illustrates the placement of each XAI domain and its relationship with
+the human user.
+
+                      Decision output
+
+AI System
+
+                      Human in the loop - feedback
+
+ Data Physicalizing
+  & Tangible User
+                      Interaces
+
+Explainable AI
+
+ Decision Explanation
+ User probes the model
+                      Human User
+                      Explanation Interface
+
+ Decision Explanation
+ Convey a single
+ explanation
+
+                Fig. 1. Review of XAI interaction with user [1]
+
+       This paper reviews existing literature from various disciplines & sources to
+provide insights into the role of XAI for Trust and Transparency.
+  In the study by [2] the focus is on the concept of causability, distinguishing it
+from explainability. The authors argue that causability is a property of individuals,
+while explainability pertains to the system itself. This differentiation provides a
+foundation for exploring the different aspects and requirements of explainability in AI
+systems.
+      [3] propose an alternative approach in the absence of suitable explainability
+methods, advocating for rigorous internal and external validation of AI models. They
+suggest that validation processes can offer more direct means of achieving the goals
+typically associated with explainability. The authors also caution against making
+explainability a strict requirement for clinically deployed models.
+      [4] proposed a taxonomy for categorizing XAI techniques based on their scope
+of explanations, algorithmic methodologies, and levels of explanation. This taxonomy
+helps in  building trustworthy,  interpretable, and self-explanatory deep  learning
+models.
+      [5] provided a comprehensive summary of algorithmic concepts in XAI and offer
+insights into future opportunities, potential applications, and challenges. Their review
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+32
+
+
+
+serves as a roadmap for researchers and practitioners interested in the development
+and application of XAI techniques.
+      In the context of reinforcement learning (RL), [6] evaluate studies that directly
+link explainability to RL models. They categorize     these studies into transparent
+algorithms   and post-hoc explainability approaches,  shedding      light on  different
+strategies for achieving explainability in RL systems.
+     [7]   presented   an analytical review of the    current state-of-the-art in    AI
+explainability, particularly in the context of advancements in machine learning and
+deep learning. Their work provides insights into the progress made and the challenges
+that still need to be addressed.
+      Other influential works in the field of XAI include [8] , [9] and [10] which have
+contributed to the evolving landscape of explainability in AI.
+     These studies collectively contribute to the understanding of XAI by examining
+the cognitive processes involved in explanation generation, proposing taxonomies for
+categorizing  XAI   techniques, exploring alternative validation    approaches,   and
+providing insights into the future directions and challenges of XAI.
+
+4. XAI TECHNIQUES FOR INTERPRETABILITY
+
+     The black box problem in AI refers to the difficulty in understanding how AI
+systems   and machine learning models    process data and generate predictions    or
+decisions. These    models often rely on  intricate   algorithms that are not  easily
+understandable to humans, leading to a lack of accountability and trust. The inability
+to effectively monitor and regulate AI systems has already strained relationships
+between different industries and regulatory bodies [11].
+     There is a clear trade-off between the performance of a machine learning model
+and its ability to produce explainable and interpretable predictions. Black-box models,
+which include deep learning and ensembles, are often used in AI, but they are not
+easily interpretable [12].
+          The lack of transparency and interpretability of black-box models can lead to
+serious mistakes, and even dangerous decisions. For instance, an attacker could
+change the input data to influence the model's judgment to make incorrect or even
+dangerous decisions [13]. Therefore, it is crucial to develop methods that can help to
+achieve   more explainable and interpretable predictions.   One approach is    to   use
+interpretable  models, which    are  self-explanatory. Another   approach is  to    use
+explainable AI, which is still very much an active area of research. By fostering
+collaboration between different industries and regulatory bodies, addressing the black
+box problem is becoming more pressing.
+       Some of the challenges of black box AI models include their lack of flexibility,
+susceptibility to security flaws, and difficulty in fixing deep learning systems when
+they produce unwanted outcomes. While black box models are appropriate in some
+circumstances, they can pose several issues, including unwanted biases from our
+human world [14]. Therefore, it is important to develop methods that can help to
+achieve more explainable and interpretable predictions. This can be achieved through
+the use of interpretable models or explainable AI, which is still an active area of
+research [15].
+     By addressing the black box problem, we can foster collaboration between
+different  industries  and regulatory bodies,  and     ensure that  AI    systems are
+transparent, accountable, and trustworthy.
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+33
+
+
+
+5. ENHANCING TRUST AND TRANSPARENCY WITH XAI
+
+     XAI plays a crucial role in building trust and transparency in AI systems. This
+section discusses the significance of XAI in       promoting trust and explores how XAI
+techniques provide insights into the decision-making processes of AI models.
+     XAI techniques enable users to gain a deeper understanding of how AI models
+arrive at their decisions, thus increasing trust in the system. By providing explanations
+and justifications for the model's outputs, XAI helps users comprehend the underlying
+factors considered by the AI system [20]. This transparency instills confidence and
+fosters trust in the technology.
+     The  insights provided     by XAI techniques also contribute to    the overall
+transparency of  AI systems.    Users can examine the  decision-making       processes,
+identify potential biases, and assess the reliability and fairness of the model's outputs
+[21]In domains such as healthcare, finance, and autonomous vehicles, where the
+consequences of AI decisions can have significant impacts, transparent systems are
+crucial for ensuring accountability and ethical considerations.
+     XAI techniques offer valuable insights into the inner workings of AI models,
+helping users identify patterns, understand correlations, and uncover potential errors
+or  biases. This increased transparency   enables stakeholders to     make informed
+decisions, verify the accuracy of the model's predictions, and take appropriate actions
+when necessary [22].
+           In the healthcare domain, XAI techniques can aid clinicians in understanding
+the reasoning    behind AI-based   diagnoses or treatment recommendations.     This
+understanding allows    healthcare professionals to       make more informed decisions,
+enhance patient care, and build confidence in AI-assisted healthcare systems [23].
+     Similarly,  XAI is essential  in the financial sector to  ensure transparency,
+fairness, and accountability in AI systems. XAI techniques can shed light on the factors
+driving AI-based investment decisions or risk assessments, enabling investors and
+regulators to validate the fairness and reliability of the models, leading to improved
+trust and accountability [24]. XAI is the transfer of understanding to AI models to
+end-users by highlighting key decision-pathways in the model and allowing for human
+interpretability at various stages of the model's decision-process [24].
+
+6. ETHICAL CONSIDERATIONS AND RESPONSIBLE DEPLOYMENT
+
+     Ethical considerations play a crucial role in the deployment of XAI techniques
+and AI systems in general. This section discusses the ethical implications of XAI and
+its role in ensuring responsible AI deployment.
+     XAI    has  the potential  to address   issues related    to bias, fairness,   and
+accountability  in AI systems.  By providing explanations   for   the   decision-making
+process, XAI can help identify and mitigate biases that may be present in the data or
+algorithms [25].It enables developers and users to understand how certain features
+or factors influence the outcomes, allowing for fairer and more transparent decision-
+making processes.
+     Ensuring    accountability is  another  important aspect     of  responsible    AI
+deployment. XAI techniques enable stakeholders to trace the decision-making process
+and understand the factors that led to a particular outcome. This transparency holds
+AI systems accountable for their actions and provides a means for evaluating their
+performance [26].
+          To promote ethical and responsible use of XAI, guidelines and frameworks have
+been proposed.     For  example,   the European  Union's   General    Data   Protection
+Regulation (GDPR) emphasizes the importance of transparency and explicability in
+automated decision-making processes [27]. The Responsible AI Principles developed
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+                                       34
+
+
+
+by organizations like IEEE and ACM also stress the need for explainability and fairness
+in AI systems [28] .
+      Responsible deployment of XAI also requires considering the broader societal
+impact. This   includes addressing issues of privacy, consent, and potential social
+consequences. XAI should be developed and deployed in a manner that respects
+individual rights and promotes the well-being of society as a whole [29] .
+                     By integrating ethical considerations into the design and deployment of XAI
+techniques, it is possible to foster the development  of AI systems that are fair,
+transparent, and accountable.
+
+7. CONCLUSION AND DISCUSSION
+
+      Explainable Artificial Intelligence (XAI) holds great promise in addressing the
+challenges of transparency, interpretability, trust, and ethical considerations in AI
+systems. This paper explores the concept of XAI, its role in enhancing trust and
+transparency, and the ethical implications associated with its deployment.
+                        The development and integration of XAI techniques have provided valuable
+insights into the decision-making processes of AI models. Methods such as saliency
+maps,   attention  mechanisms,     rule-based  explanations,   and model-agnostic
+approaches offer a deeper understanding of how AI models arrive at their predictions
+or decisions. This interpretability not only builds             trust in the technology but also
+enables stakeholders to identify and address potential biases and unfairness.
+      Furthermore, XAI plays a vital role in responsible AI deployment. It enables
+accountability by  allowing developers,   regulators, and end-users to    trace and
+comprehend the factors influencing AI system outputs. Adhering to guidelines and
+frameworks that emphasize explainability, fairness, and societal well-being ensures
+that AI systems are developed and deployed in an ethical and responsible manner.
+      However, it is important to acknowledge that the field of XAI is still evolving,
+and there are  challenges   that need to  be addressed. Striking the right   balance
+between interpretability and performance, handling complex models and big data,
+and developing standardized evaluation methods for XAI techniques are among the
+key challenges.
+                   In conclusion, XAI represents a significant step forward in making AI systems
+more  transparent,  interpretable, and  accountable.  By  integrating XAI  into               the
+development and deployment of AI models, trust can be enhanced, biases can be
+addressed, and responsible AI practices can be promoted. Ongoing research and
+advancements in XAI will continue to shape the future of AI technology, making it
+more accessible, understandable, and aligned with human values.
+                    Overall, XAI holds tremendous potential to revolutionize the field of AI and
+empower individuals and organizations to harness the benefits of AI technology while
+ensuring its responsible and ethical use. It is a multidisciplinary endeavor that requires
+collaboration  between  researchers, policymakers,    and industry stakeholders               to
+navigate the complex landscape of AI ethics and build a future where AI systems are
+transparent, fair, and trustworthy.
+
+REFERENCES
+1. Colley, K. Väänänen and  J. Häkkilä,, "Tangible Explainable AI - an Initial        Conceptual
+Framework," in 21th International Conference on Mobile and Ubiquitous Multimedia, Lisbon,
+2022.
+2. Holzinger, G. Langs and H. Denk, "Causability and explainabilty of artificial intelligence in
+medicine," Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery, July 2019.
+3. M. Ghassemi, . O.-R. Luke and . A. L. Beam, "The false hope of current approaches to
+explainable artificial intelligence in health care," The Lancet Digital Health, November 2021.
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+35
+
+
+
+4. G.   Schwalbe   and B. Finzel, "A   Comprehensive Taxonomy      for Explainable     Artificial
+Intelligence: A Systematic Survey of Surveys on Methods and Concepts," Data Mining and
+Knowledge Discovery , 2021.
+5. J.   Jiménez-Luna and F. Grisoni,  "Drug discovery with explainable artificial    intelligence,"
+Nature Machine Intelligence, 2020.
+6. A.   Heuillet, F. Couthouis and N.  Díaz-Rodríguez, "Explainability in        deep reinforcement
+learning," Knowledge-Based Systems 214(7540):106685, 2020.
+7.    P. P. Angelov, E. A. Soares and R. Jiang, "Explainable artificial intelligence: an analytical
+Review," Wiley Interdisciplinary Reviews: Data Mining and Knowledge Discovery 11(5), 2021.
+8. F. K. Došilović, M. Brčić and Nikica Hlupić, "Explainable artificial intelligence: A survey," in
+International Convention MIPRO, 2018.
+9. D. Gunning, M. Stefik and J. Choi, "XAI-Explainable artificial intelligence," Science Robotics,
+2019.
+10. Michael Ridley,  "Explainable Artificial Intelligence (XAI)," Information Technology        and
+Libraries, 2022.
+11. S. Jagati, "AI’s black box problem: Challenges and solutions for a transparent future," May
+2023. [Online]. Available: https://cointelegraph.com/news/ai-s-black-box-problem-challenges-
+and-solutions-for-a-transparent-future.
+12. P. Linardatos, V. Papastefanopoulos, and S. Kotsiantis, "Explainable AI: A Review of Machine
+Learning Interpretability Methods," Entropy (Basel), December 2020.
+13. Kinza   Yasar,     "black      box       AI,"  March  2023.        [Online].         Available:
+https://www.techtarget.com/whatis/definition/black-box-AI.
+14. L.  Blouin, "AI's mysterious  ‘black box’ problem,    explained," 2023. [Online].    Available:
+https://umdearborn.edu/news/ais-mysterious-black-box-problem-explained.
+15. Rudin C., and . J. Radin, "Why Are We Using Black Box Models in AI When We Don’t Need
+To? A Lesson From an Explainable AI Competition," 2019. [Online].
+16. K.  Simonyan,     A. Vedaldi and  A. Zisserman, "Deep Inside      Convolutional    Networks:
+Visualising," 2013.
+17. Bahdanau, K. Cho and Y. Bengio, "Neural Machine Translation by Jointly Learning to Align
+and Translate," 2014.
+18. M.  T. Ribeiro,  S.  Singh and C. Guestrin,    ""Why  Should  I Trust You?": Explaining     the
+Predictions of Any Classifier," in the 22nd ACM SIGKDD International Conference, 2016.
+19. S. Lundberg and S.-I. Lee, "A Unified Approach to Interpreting Model Predictions," in 31st
+Conference on Neural Information Processing Systems (NIPS 2017), Long Beach, CA, USA.,
+2017.
+20. A.  Adadi and M. Berrada, "Peeking Inside the Black-Box: A Survey on Explainable Artificial
+Intelligence (XAI)," IEEE Access, 2018.
+21. B.  Arrieta,  N. D.-. Rodríguez and J.   Del   Ser, "Explainable Artificial Intelligence (XAI):
+Concepts,   Taxonomies,   Opportunities  and  Challenges  toward    Responsible AI,"    Information
+Fusion 58, 2019.
+22. R. Guidotti, A. Monreale and F. Turini, "A Survey of Methods for Explaining Black Box Models,"
+ACM Computing Surveys , 2018.
+23. A. Rajkomar, E. Oren and K. Chen, "Scalable and accurate deep learning for electronic health
+records," Digital Medicine 1(1), 2018.
+24. Owens, B. Sheehan and M. Mullins, "Explainable Artificial Intelligence (XAI) in Insurance,"
+Risks, 2022.
+25. Z. C. Lipton, "The Mythos of Model Interpretability," Communications of the ACM 61(10),
+2016.
+26. J. Burrell, "How the machine 'thinks: Understanding opacity in machine learning algorithms,"
+Big Data & Society 3(1, January 2016.
+27. Goodman and S. Flaxman, "EU regulations on algorithmic decision-making and a "right to
+explanation"," Ai Magazine 38(3), 2016.
+28. Pedreschi, F. Giannotti, R. Guidotti, A. Monreale, S. Ruggieri and F. Turini, "Meaningful
+Explanations of Black Box AI Decision Systems," Proceedings of the AAAI Conference on Artificial
+Intelligence, 2019.
+29. A.  Jobin, M. Ienca and E. Vayena, "Artificial Intelligence: the global landscape of ethics
+guidelines," 2019.
+30. S. Arora and P. Rajan, "Explainable AI for finance: A review," Journal of Big Data.
+
+©ICS. Journal of Digital Art & Humanities, ISSN 2712-8148, 4(1), June 2023
+36
